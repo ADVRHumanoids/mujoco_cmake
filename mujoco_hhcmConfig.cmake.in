@@ -1,0 +1,14 @@
+set(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_DIR}/../../..")
+
+set(MJ_VER @PROJECT_VERSION_MAJOR@@PROJECT_VERSION_MINOR@@PROJECT_VERSION_PATCH@)
+
+add_library(mujoco_hhcm::mujoco SHARED IMPORTED)
+
+set_target_properties(mujoco_hhcm::mujoco PROPERTIES
+  INTERFACE_COMPILE_DEFINITIONS ""
+  INTERFACE_COMPILE_OPTIONS ""
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/mujoco"
+  INTERFACE_LINK_LIBRARIES "${_IMPORT_PREFIX}/lib/libglfw.so.3;${_IMPORT_PREFIX}/lib/libglew.so;pthread;GL"
+  IMPORTED_LOCATION "${_IMPORT_PREFIX}/lib/libmujoco${MJ_VER}.so"
+  IMPORTED_SONAME "libmujoco${MJ_VER}.so"
+)
