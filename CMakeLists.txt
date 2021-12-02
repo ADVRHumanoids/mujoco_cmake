@@ -18,6 +18,13 @@ ExternalProject_Add(
 
 set(MUJOCO_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/mujoco/src/mujoco)
 
+add_custom_command(
+    COMMAND cp ${MUJOCO_SRC_DIR}/bin/compile ${CMAKE_CURRENT_BINARY_DIR}/mujoco_compile
+    #OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/mujoco_compile
+    TARGET mujoco
+    COMMENT "renaming compile to mujoco_compile"
+)
+
 configure_file(mujoco_cmakeConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/mujoco_cmakeConfig.cmake
     @ONLY)
@@ -41,3 +48,10 @@ install(
     DESTINATION
     lib
     FILES_MATCHING PATTERN *.so*)
+
+install(
+    PROGRAMS
+    ${CMAKE_CURRENT_BINARY_DIR}/mujoco_compile
+    DESTINATION
+    bin
+    )
