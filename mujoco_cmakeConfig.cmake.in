@@ -12,3 +12,5 @@ set_target_properties(mujoco_cmake::mujoco PROPERTIES
   IMPORTED_LOCATION "${_IMPORT_PREFIX}/lib/libmujoco${MJ_VER}.so"
   IMPORTED_SONAME "libmujoco${MJ_VER}.so"
 )
+
+set(MUJOCO_COMPILER "${_IMPORT_PREFIX}/bin/mujoco_compile")
