@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(mujoco_hhcm VERSION 2.1.0)
+project(mujoco_cmake VERSION 2.1.0)
 
 set(MJ_VER ${PROJECT_VERSION_MAJOR}${PROJECT_VERSION_MINOR}${PROJECT_VERSION_PATCH})
 
@@ -18,13 +18,13 @@ ExternalProject_Add(
 
 set(MUJOCO_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/mujoco/src/mujoco)
 
-configure_file(mujoco_hhcmConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/mujoco_hhcmConfig.cmake
+configure_file(mujoco_cmakeConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/mujoco_cmakeConfig.cmake
     @ONLY)
 
 install(
     FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/mujoco_hhcmConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/mujoco_cmakeConfig.cmake
     DESTINATION
     lib/cmake/${PROJECT_NAME}
     )
