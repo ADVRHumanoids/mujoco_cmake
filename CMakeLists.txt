@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(mujoco_cmake VERSION 3.2.7)
+project(mujoco_cmake VERSION 3.7.0)
 
 set(MJ_VER ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 
@@ -10,7 +10,7 @@ ExternalProject_Add(
     mujoco
     PREFIX "mujoco"
     URL https://github.com/google-deepmind/mujoco/releases/download/${MJ_VER}/mujoco-${MJ_VER}-linux-x86_64.tar.gz
-    URL_HASH SHA256=520a65fbb0b75cac5245cc07526840545c01faa354f18c623a5e62b36571ed61
+    URL_HASH SHA256=f296190163faaa7424e8b9b09988b725bc67dba357e46da27ce9b0c96f3ed7f2
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
